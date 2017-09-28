@@ -24,7 +24,7 @@ This script will install and setup **Nginx** + **MySQL** + **PHP** through **Hom
 ## Usage
 `brew-emp [start | stop | restart]`
 
-##PHP versions supporting
+## PHP versions supporting
 5.3, 5.4, 5.5, 5.6, 7.0, 7.1
 
 ## Creating VirtualHost
