@@ -1,4 +1,4 @@
-# Homebrew (E)Nginx MySQL PHP Installer
+# Homebrew (E)Nginx MySQL PHP Installer (DataSpark edition)
 
 Native way to setup web environment for Mac.
 
@@ -11,18 +11,21 @@ This script will install and setup **Nginx** + **MySQL** + **PHP** through **Hom
 ## Requirements
 
 * [Homebrew](http://mxcl.github.com/homebrew/)
- 
+
 ## Installation
-`curl -L https://raw.github.com/mrded/brew-emp/master/tools/install.sh | bash`
+`curl -L https://raw.github.com/biozahard/brew-emp/master/tools/install.sh | bash`
 
 ## Uninstall
-`curl -L https://raw.github.com/mrded/brew-emp/master/tools/uninstall.sh | bash`
+`curl -L https://raw.github.com/biozahard/brew-emp/master/tools/uninstall.sh | bash`
 
 ## Update PHP version
-`curl -L https://raw.github.com/mrded/brew-emp/master/tools/update.sh | bash`
+`curl -L https://raw.github.com/biozahard/brew-emp/master/tools/update.sh | bash`
 
 ## Usage
 `brew-emp [start | stop | restart]`
+
+##PHP versions supporting
+5.3, 5.4, 5.5, 5.6, 7.0, 7.1
 
 ## Creating VirtualHost
 For example let's create virtual host for Drupal 'mysite'.
@@ -49,6 +52,12 @@ Enable virtual host:
 `ln -s /usr/local/etc/nginx/sites-available/mysite.local /usr/local/etc/nginx/sites-enabled/mysite.local`
 
 Add `127.0.0.1 mysite.local` to `/etc/hosts`.
+
+## Additional packages will ask you to install
+**Memcached**
+**Redis**
+**Xdebug**
+**Drush**
 
 ## Default Settings
 

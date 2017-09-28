@@ -17,6 +17,8 @@ PHP_VERSIONS=(
   2 "5.4"
   3 "5.5"
   4 "5.6"
+  5 "7.0"
+  6 "7.1"
 )
 
 CHOICE=$(dialog --clear \
@@ -44,6 +46,14 @@ case $CHOICE in
   4)
     PHP_VERSION='56'
     PHP_VERSION_WITH_DOT='5.6'
+    ;;
+  5)
+    PHP_VERSION='70'
+    PHP_VERSION_WITH_DOT='7.0'
+    ;;
+  6)
+    PHP_VERSION='71'
+    PHP_VERSION_WITH_DOT='7.1'
     ;;
 esac
 
@@ -80,10 +90,10 @@ brew install php${PHP_VERSION} --without-apache --with-mysql --with-fpm --withou
 brew link --overwrite php${PHP_VERSION}
 
 AVAILABLE_PACKAGES=(
-  1 "Memcached" off
+  1 "Memcached" on
   2 "Redis" on
-  3 "Xdebug" on
-  4 "Drush" on
+  3 "Xdebug" off
+  4 "Drush" off
 )
 
 PACKAGES=$(dialog --separate-output \
