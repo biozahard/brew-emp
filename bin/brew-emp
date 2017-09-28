@@ -19,6 +19,11 @@ case "$1" in
   sudo brew services restart redis
   sudo brew services restart memcached
   ;;
+"status")
+  php -v
+  sudo nginx -t
+  mysql -v
+  ;;
 *)
   echo 'Usage: brew-emp [start | stop | restart]'
   ;;
