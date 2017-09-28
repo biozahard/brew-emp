@@ -133,6 +133,6 @@ done
 
 echo '✩✩✩✩ Brew-emp ✩✩✩✩'
 curl -Lo /usr/local/bin/brew-emp.old https://raw.github.com/biozahard/brew-emp/master/bin/brew-emp
-sed  's/__PHP_VERSION__/${PHP_VERSION}/g' /usr/local/bin/brew-emp.old > /usr/local/bin/brew-emp
+sed  s/__PHP_VERSION__/${PHP_VERSION}/g /usr/local/bin/brew-emp.old > /usr/local/bin/brew-emp
 rm /usr/local/bin/brew-emp.old
 chmod 755 /usr/local/bin/brew-emp
