@@ -60,7 +60,7 @@ esac
 echo '✩✩✩✩ MYSQL ✩✩✩✩'
 brew install mysql
 #mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql --tmpdir=/tmp
-curl -Lo /usr/local/etc/my.cnf https://raw.github.com/mrded/brew-emp/master/conf/mysql/my.cnf
+curl -Lo /usr/local/etc/my.cnf https://raw.github.com/biozahard/brew-emp/master/conf/mysql/my.cnf
 chmod 644 /usr/local/etc/my.cnf
 
 echo '✩✩✩✩ NGINX ✩✩✩✩'
@@ -69,14 +69,12 @@ brew install --with-passenger nginx
 echo '-> Download configs'
 mkdir /usr/local/etc/nginx/{common,sites-available,sites-enabled}
 
-curl -Lo /usr/local/etc/nginx/nginx.conf https://raw.github.com/mrded/brew-emp/master/conf/nginx/nginx.conf
+curl -Lo /usr/local/etc/nginx/nginx.conf https://raw.github.com/biozahard/brew-emp/master/conf/nginx/nginx.conf
 
-curl -Lo /usr/local/etc/nginx/common/php https://raw.github.com/mrded/brew-emp/master/conf/nginx/common/php
-curl -Lo /usr/local/etc/nginx/common/drupal https://raw.github.com/mrded/brew-emp/master/conf/nginx/common/drupal
+curl -Lo /usr/local/etc/nginx/common/php https://raw.github.com/biozahard/brew-emp/master/conf/nginx/common/php
 
 # Download Virtual Hosts.
-curl -Lo /usr/local/etc/nginx/sites-available/default https://raw.github.com/mrded/brew-emp/master/conf/nginx/sites-available/default
-curl -Lo /usr/local/etc/nginx/sites-available/drupal.local https://raw.github.com/mrded/brew-emp/master/conf/nginx/sites-available/drupal.local
+curl -Lo /usr/local/etc/nginx/sites-available/default https://raw.github.com/biozahard/brew-emp/master/conf/nginx/sites-available/default
 
 ln -s /usr/local/etc/nginx/sites-available/default /usr/local/etc/nginx/sites-enabled/default
 
@@ -126,11 +124,15 @@ do
       ;;
     4)
       echo '✩✩✩✩ Drush ✩✩✩✩'
+      curl -Lo /usr/local/etc/nginx/sites-available/drupal.local https://raw.github.com/biozahard/brew-emp/master/conf/nginx/sites-available/drupal.local
+      curl -Lo /usr/local/etc/nginx/common/drupal https://raw.github.com/biozahard/brew-emp/master/conf/nginx/common/drupal
       brew install drush
       ;;
   esac
 done
 
 echo '✩✩✩✩ Brew-emp ✩✩✩✩'
-curl -Lo /usr/local/bin/brew-emp https://raw.github.com/mrded/brew-emp/master/bin/brew-emp
+curl -Lo /usr/local/bin/brew-emp.old https://raw.github.com/biozahard/brew-emp/master/bin/brew-emp
+sed  's/__PHP_VERSION__/${PHP_VERSION}/g' /usr/local/bin/brew-emp.old > /usr/local/bin/brew-emp
+rm /usr/local/bin/brew-emp.old
 chmod 755 /usr/local/bin/brew-emp

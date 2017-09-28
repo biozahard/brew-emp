@@ -13,4 +13,4 @@ do
   brew remove php"$PHP_VERSION"-xhprof
 done
 
-curl -L https://raw.github.com/mrded/brew-emp/master/tools/install.sh | bash
+curl -L https://raw.github.com/biozahard/brew-emp/master/tools/install.sh | bash
